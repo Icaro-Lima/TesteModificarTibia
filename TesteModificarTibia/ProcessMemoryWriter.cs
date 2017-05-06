@@ -35,5 +35,12 @@ namespace TesteModificarTibia
             WriteProcessMemory((int)processHandle, (int)address, buffer, buffer.Length, ref bytesWritten);
         }
 
+        public void SetBool(IntPtr address, bool value)
+        {
+            int bytesWritten = 0;
+            byte[] buffer = BitConverter.GetBytes(value);
+
+            WriteProcessMemory((int)processHandle, (int)address, buffer, buffer.Length, ref bytesWritten);
+        }
     }
 }
